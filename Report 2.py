@@ -7,7 +7,7 @@ while (aaa==1):
  os.system("cls")
 #MAIN CONSOLE
  print("Welcome to the Physical Properties of UF6 Portal")
- print(" We have data of the following properties:\n 1.Vapour Pressure\n 2.Density\n 3.Viscosity\n 4.Thermal conductivity\n")
+ print(" We have data of the following properties:\n 1.Vapour Pressure\n 2.Density\n 3.Viscosity\n ")
  print(" Please select the number corresponding to the property you want to find:")
  q=input("")
 #PROPERTY SELECTION
@@ -316,7 +316,128 @@ while (aaa==1):
       print("\n The density of gaseous UF6 at temperature %f degrees centrigrade is %f kg/(m)^3",t,d)
       print("(From Weinstock equation)")
       print("\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt")
- #DENSITY ENDS
+  #DENSITY ENDS
+  #VISCOSITY STARTS
+ elif q==3 :
+  os.system("cls")
+  print("Welcome to the viscosity portal")
+  print(' Select the number corresponding to the state of UF6\n 1.Gas\n 2.Liquid\n')
+  i=input("")
+  if i<1 or i>2:
+   print("Please enter a value from 1 to 2 only")
+  elif i==1 :
+   #GAS
+   print(' Do you want to find out the viscosity for\n 1.Single temperature\n 2.Range of temperaure?\n Please enter the number corresponding to your choice\n')
+   n=input("")
+   if n<1 or n>2:
+    print("Please enter a value from 1 to 2 only")
+   elif n==1 :
+    #GAS SINGLE TEMP CALCULATION
+    dum=0;
+    while dum==0:
+     print(" Enter the temperature in degree Celsius(greater than -273.15)")
+     t=input("")
+     if t<=-273.15 :
+      dum=0
+     elif t>-273.15 :
+      dum=1
+    s=t+273.15;
+    if t<=-273.15 :
+     print"Temperature  ",t,"  degrees Celsius is less than the absolute temperature"
+    elif t>=-273.15 :
+     u=(2.1*(pow(s,.779)*pow(10,-6)))
+     print "The viscosity of the UF6 vapours at",t," degree Celsius is", u, "Poise"
+     print("(From Llewellyns equation)")
+     print('\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt')
+   elif n==2 :
+    #GAS RANGE OF TEMP CALCULATION
+    dum=0;
+    while dum==0:
+     print(" Enter the lower temperature in degree Celsius (greater than -273.15)")
+     t1=input("")
+     if t1<=-273.15 :
+      dum=0
+     elif t1>-273.15 :
+      dum=1
+    hum=0;
+    while hum==0:
+     print(" Enter the higher temperature in degree Celsius (greater than -273.15)")
+     t2=input("")
+     if t2<=-273.15 or t2<t1 :
+        hum=0
+     elif t2>t1 :
+        hum=1;
+    print(" Enter step size in degree Celsius")
+    t3=input("")
+    nn=(t2-t1)/t3
+    nnn=abs(nn)
+    for x in range (1,nnn):  
+     t=t1+x*t3
+     s=t+273.15
+     if t<-273.15 :
+      print("Temperature  ",t,"  degrees Celsius is less than the absolute temperature")
+     elif t>=-273.15 :
+      u=(2.1*(pow(s,.779)*pow(10,-6)))
+      print" The viscosity of the UF6 vapours at",t, "degree Celsiusis",u,"Poise\n"
+     print("(From Llewellyns equation)")
+     print('\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt')
+     
+  elif i==2 :
+   #LIQUID VISCOSITY
+   print(' Do you want to find out the viscosity for\n 1.Single temperature\n 2.Range of temperaure?\n Please enter the number corresponding to your choice\n')
+   n=input("")
+   if n<1 or n>2 :
+    print("Please enter a value from 1 to 2 only")
+   elif n==1 :
+    #LIQUID VISCOSITY SINGLE TEMP CALCULATION
+    dum=0;
+    while dum==0:
+     print(" Enter the temperature in degree Celsius(greater than 64.02)")
+     t=input("")
+     if t<=64.02 :
+      dum=0
+     elif t>64.02 :
+      dum=1
+    s=t+273.15;
+    if t<=64.02 :
+     print("Temperature  ",t,"  degrees Celsius is less than the triple point temperature")
+    elif t>64.02 :
+     u=(.1271*pow(10,-3)*np.exp(1217/s))
+     print' The viscosity of the UF6 liquid at',t, 'degrees Celsius is',u,'Poise'
+     print("(From Cohens equation)")
+     print('\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt')
+   elif n==2 :
+    #LIQUID VISCOSITY   RANGE OF TEMP CALCULATION
+    dum=0;
+    while dum==0:
+     print(" Enter the lower temperature in degree Celsius (greater than 64.02)")
+     t1=input("")
+     if t1<=64.02 :
+      dum=0
+     elif t1>64.02 :
+      dum=1
+    hum=0;
+    while hum==0:
+     print(" Enter the higher temperature in degree Celsius (greater than 64.02)")
+     t2=input("")
+     if t2<64.02 or t2<t1:
+        hum=0
+     elif t2>t1 :
+        hum=1;
+    print(" Enter step size in degree Celsius")
+    t3=input("")
+    nn=(t2-t1)/t3
+    nnn=abs(nn)
+    for x in range (1,nnn):  
+     t=t1+x*t3
+     s=t+273.15
+     if t<=-140 :
+      print("Temperature  ",t, "  degrees Celsius is less than the absolute temperature")
+     elif t>-140 :
+      u=(.1271*10^(-3)*np.exp(1217/s))
+      print' The viscosity of the UF6 liquid at',t,'degrees Celsius is',u,' Poise\n'
+     print("(From Cohens equation)")
+     print('\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt')
  print "Do you want to continue?\n 1.Yes\n 2.No"
  hp=input("")
  if hp==1 :
