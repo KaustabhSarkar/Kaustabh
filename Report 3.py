@@ -261,11 +261,11 @@ while (aaa==1):
     print("Please enter the pressure in mm Hg")
     k=input("")
     p=k/760;
-    l=((1.3769*10^(6)*p)^(1/3))-273.15
+    l=pow((1.3769*pow(10,6)*p),(1/3))-273.15
     ll=l-.1*l;
     dum=0;
     while dum==0:
-     print("Enter the temperature in degree Celsius (greater than ",ll," degrees Celsius)")
+     print "Enter the temperature in degree Celsius (greater than ",ll," degrees Celsius)"
      t=input("")
      if t<ll:
       dum=0
@@ -276,9 +276,9 @@ while (aaa==1):
       print("Temperature  ",t,"  degrees Celsius is less than the temperature limit")
      elif t>ll: 
       d=((4.291*p)/(s*(1+(-1.3769*pow(10,6)*p/pow(s,3)))))*1000
-      print("\n The density of gaseous UF6 at temperature",t,"degrees centrigrade is",d," g/cc")
-      print("(From Weinstock equation)")
-      print("\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt")
+      print "\n The density of gaseous UF6 at temperature",t,"degrees centrigrade is",d," g/cc"
+      print "(From Weinstock equation)"
+      print "\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt"
       #GAS DENSITY RANGE OF TEMP CALCULATIONS
    elif n==2 :
     print("Please enter the pressure in mm Hg")
@@ -313,9 +313,9 @@ while (aaa==1):
       print("Temperature  ",t,"  degrees Celsius is less than the lower limit temperature")
      elif t>ll: 
       d=((4.291*p)/(s*(1+(-1.3769*pow(10,6)*p/pow(s,3)))))*1000;
-      print("\n The density of gaseous UF6 at temperature %f degrees centrigrade is %f kg/(m)^3",t,d)
-      print("(From Weinstock equation)")
-      print("\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt")
+      print "\n The density of gaseous UF6 at temperature", t, " degrees centrigrade is", d, " kg/(m)^3"
+    print("(From Weinstock equation)")
+    print("\n Source:\n Uranium Hexaflouride: A Survey of the Physico-Chemical Properties(GAT 280)\n by R. DeWitt")
   #DENSITY ENDS
   #VISCOSITY STARTS
  elif q==3 :
